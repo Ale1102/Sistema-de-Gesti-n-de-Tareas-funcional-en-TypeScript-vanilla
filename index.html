@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Aquí vincularemos los estilos más adelante -->
+     <style>
+      body {
+        margin-top: 50%;
+        text-align: center;
+      }
+     </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Mis Tareas</h1>
+      </header>
+
+      <main>
+        <!-- Formulario para crear tareas -->
+        <section class="task-form-section">
+          <h2>Nueva Tarea</h2>
+          <form id="task-form">
+            <input type="text" id="task-title" placeholder="Título de la tarea" required />
+            <textarea id="task-desc" placeholder="Descripción detallada" required></textarea>
+            
+            <div class="form-row">
+              <input type="text" id="task-category" placeholder="Categoría (ej. Trabajo)" required />
+              
+              <select id="task-priority" required>
+                <option value="" disabled selected>Prioridad</option>
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+              </select>
+            </div>
+            
+            <button type="submit" id="submit-btn">Guardar Tarea</button>
+          </form>
+        </section>
+
+        <!-- Filtros y Búsqueda -->
+        <section class="filters-section">
+          <input type="text" id="search-input" placeholder="Buscar por título..." />
+          
+          <div class="filters-group">
+            <select id="filter-status">
+              <option value="all">Todas</option>
+              <option value="pending">Pendientes</option>
+              <option value="completed">Completadas</option>
+            </select>
+
+            <select id="filter-priority">
+              <option value="all">Cualquier prioridad</option>
+              <option value="baja">Baja</option>
+              <option value="media">Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- Contenedor donde se inyectarán las tareas con TypeScript -->
+        <section class="task-list-section">
+          <ul id="task-list">
+            <!-- Las tareas se generarán aquí dinámicamente -->
+          </ul>
+        </section>
+      </main>
+    </div>
+    
+    <!-- Vite inyecta el TypeScript principal aquí -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
